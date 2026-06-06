@@ -1,0 +1,55 @@
+{
+  "name": "claw-pet",
+  "version": "2.0.0",
+  "description": "🦞 Claw Desktop Pet - OpenClaw 官方桌面宠物",
+  "author": "OpenClaw",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --mac dmg",
+    "build:win": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.openclaw.claw-pet",
+    "productName": "Claw Pet",
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": ["dmg"],
+      "icon": "build/icon.icns",
+      "darkModeSupport": true,
+      "hardenedRuntime": false,
+      "identity": null
+    },
+    "win": {
+      "target": ["portable"]
+    },
+    "linux": {
+      "target": ["AppImage"]
+    },
+    "dmg": {
+      "title": "Claw Pet ${version}",
+      "icon": "build/icon.icns",
+      "window": {
+        "width": 400,
+        "height": 300
+      }
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "style.css",
+      "renderer.js",
+      "build/icon.icns",
+      "build/tray-icon-white.svg"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
