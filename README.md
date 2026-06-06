@@ -14,7 +14,7 @@ openclaw 官方吉祥物 claw 的桌面宠物。
 
 ## 安装
 
-### 方式一：下载 .dmg（推荐）
+### 下载 .dmg
 
 1. 前往 [Releases](https://github.com/zehancao/github.com-zehancao-claw-pet/releases) 下载最新版
 2. 打开 `.dmg`，将 **Claw Pet** 拖进 Applications
@@ -22,14 +22,6 @@ openclaw 官方吉祥物 claw 的桌面宠物。
 
 > 首次打开可能被 Gatekeeper 拦截：**系统设置 → 隐私与安全性 → 仍要打开**
 
-### 方式二：从源码运行
-
-```bash
-git clone https://github.com/zehancao/github.com-zehancao-claw-pet.git
-cd clawd-pet
-npm install
-npm start
-```
 
 ### 前提：运行桥接服务
 
@@ -51,17 +43,12 @@ node xia-bridge.mjs &
 | 😊 **表情状态** | 开心 / 思考 / 犯困 / 惊讶，眼睛联动 |
 | 👁️ **自然眨眼** | 随机间隔眨眼睛 |
 
-## 彩蛋
 
-- **快速点 3 下龙虾** → 分身术！✨
-- **输入"吃龙虾""蒸龙虾"等** → 惊恐抖动 😰
-- **拖拽松手** → 随机飘出心情文字
 
 ## 构建
 
 ```bash
 npm run build        # 打包 macOS .dmg
-npm run build:win    # 打包 Windows .exe
 ```
 
 ## 技术栈
