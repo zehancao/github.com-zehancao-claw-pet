@@ -51,22 +51,21 @@ function createWindow() {
 // ── Create Tray ──────────────────────────────────────
 
 function createTray() {
-  // Use a template image — macOS automatically renders it in the right color for menu bar
-  // The iconset 32x32 PNG has proper alpha; Electron treats it as a template
-  // On dark menu bar, red → white automatically
-  const iconPath = path.join(__dirname, 'build', 'tray-icon-gen.png');
-  const iconImg = nativeImage.createFromPath(iconPath);
+  // Embedded white lobster icon (base64 PNG)
+  const iconData = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABK2lDQ1BTa2lhAAAokX2QMUvDUBSFv1cKomYRFR0cMnbRppWmDdahqbXo2Cqk3dI0FLFNQxrRvas/wtlNcBGhs4uT4CTi4i4IrpXXDClIPNPHuQfuPRdSmwBpDQZeGDTqpmq12urCBwLBTLYz8kmWgJ/XKPuy/U8uSYtdd+QAX0AYWK02iC6w1ov4SnIn4mvJl6EfgriRHJw0qiDugUxvjjtz7PiBzL8B5UH/wonvRnG90yZgAVvUGTKkRx+XLE3OOcMmi0YNgxK71KhQoUCFHHlKGOgU0KhiUqRKkUN0SuTJcTBjA13+M1o5fof9yXQ6fYy94wnc6bD0EHuZPVhR4Ok59uIf+3Zgz6w0kHJN+F4H5RZWP2F5DGzIcUJX9U9XlSM8HHZQyaORQ/8FDJRN2vTWQQEAAAGESURBVDiNhZOxTtRBEIe/+XOeRkoKDSRGC6I1RI2Nb6AGrcSS0AiBhuZ8BWx4BvUptD69qFQaSaDAGENFjIDJCdHPwtlkudzpJJOdnZnf7OzOb6ESdVJ9wAhR76uTtS8y0ETEb3UeeAq8AY6B65n3FmgDt4C1iHhRMHX1sVyf+Vd66pK6nLbq83LgYGtNruvqZ/XqkPavZWz9VBG1UUO9ofbzHWbV2+mPtGcz1s/cUBvUM1nopfpEbavf1X11InU/fW21o75KTKt0cUXdSXtKPUq9mFr2U5mzo14u4E4Gf6pL6VtUF6r7L6iLaT/O3CO1E+ousAlcAs4BNyPixwgejAM9oA98AWZawFfgNTABfANOykgj4lc9YuAE2EtOdIELqB/Vbs55ZQAwjCermdtVP6DeVQ/Ud2Vs/6ByGev7nMqdEphWP6nnR4Hrd1C31GmARm1FxDZwCDz63xWAh8BBRGyrrZrGc0nV9rBrZOtn1V31HgN0Lr+yp24w8GGqQzbUXo35A5Xo0rJwuGjFAAAAAElFTkSuQmCC';
+  const iconImg = nativeImage.createFromDataURL(iconData);
   tray = new Tray(iconImg);
   tray.setToolTip('Claw Pet');
 
   const trayMenu = Menu.buildFromTemplate([
     { label: '显示 / 隐藏', click: toggleWindow },
     { type: 'separator' },
-    { label: '重启', click: () => { app.relaunch(); app.exit(0); } },
+    { label: '重启 Claw', click: () => { app.relaunch(); app.exit(0); } },
     { label: '退出', click: () => { app.isQuitting = true; app.quit(); } },
   ]);
 
   tray.setContextMenu(trayMenu);
+  tray.on('click', toggleWindow);
 }
 
 function toggleWindow() {
