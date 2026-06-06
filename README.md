@@ -38,6 +38,8 @@ git clone https://github.com/zehancao/github.com-zehancao-claw-pet.git
 cd github.com-zehancao-claw-pet
 npm install
 npm start
+
+> 关掉后重新启动，再跑一次 `npm start` 或 `npx electron .` 即可。
 ```
 
 ### 前提：运行桥接服务
