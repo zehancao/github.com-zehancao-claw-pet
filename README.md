@@ -40,6 +40,8 @@ npm install
 npm start
 
 > 关掉后重新启动，再跑一次 `npm start` 或 `npx electron .` 即可。
+> 
+> **卸载：** 关掉应用，直接删除项目文件夹 `rm -rf github.com-zehancao-claw-pet`，不留任何系统残留。
 ```
 
 ### 前提：运行桥接服务
