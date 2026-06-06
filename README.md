@@ -16,7 +16,7 @@ openclaw 官方吉祥物 claw 的桌面宠物。
 
 ### 方式一：下载 .dmg（推荐）
 
-1. 前往 [Releases](https://github.com/YOUR_USERNAME/clawd-pet/releases) 下载最新版
+1. 前往 [Releases](https://github.com/zehancao/github.com-zehancao-claw-pet/releases) 下载最新版
 2. 打开 `.dmg`，将 **Claw Pet** 拖进 Applications
 3. 双击打开 🦞
 
@@ -25,7 +25,7 @@ openclaw 官方吉祥物 claw 的桌面宠物。
 ### 方式二：从源码运行
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/clawd-pet.git
+git clone https://github.com/zehancao/github.com-zehancao-claw-pet.git
 cd clawd-pet
 npm install
 npm start
